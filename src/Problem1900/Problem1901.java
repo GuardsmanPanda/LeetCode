@@ -4,37 +4,29 @@ import java.util.Arrays;
 
 public class Problem1901 {
     public int[] findPeakGrid(int[][] mat) {
-        System.out.println(Arrays.deepToString(mat));
-        int[][] m = new int[mat.length + 2][mat[0].length + 2];
-        for (int i = 0; i < mat.length; i++) {
-            System.arraycopy(mat[i], 0, m[i + 1], 1, mat[i].length);
-            m[i + 1][m[i + 1].length - 1] = -1;
-            m[i + 1][0] = -1;
-        }
-        Arrays.fill(m[m.length - 1], -1);
-        Arrays.fill(m[0], -1);
-
-        int left = 1, right = m.length - 2;
+        int left = 0, right = mat.length - 1;
         while (left < right) {
             int mid = (right - left) / 2 + left;
-            int col = 1;
-            while (m[mid][col] < m[mid][col + 1]) {
-                col++;
+            int maxIdx = 0;
+            for (int i = 1; i < mat[0].length; i++) {
+                if (mat[mid][i] > mat[mid][maxIdx]) {
+                    maxIdx = i;
+                }
             }
-            System.out.println("mid = " + mid + ", col = " + col);
-            System.out.println(Arrays.toString(m[mid]));
-            if (m[mid - 1][col] < m[mid][col] && m[mid + 1][col] < m[mid][col]) {
-                return new int[]{mid - 1, col - 1};
-            } else if (m[mid - 1][col] > m[mid][col]) {
+            if ((mid == 0 || mat[mid - 1][maxIdx] < mat[mid][maxIdx]) && (mid == mat.length -1 || mat[mid + 1][maxIdx] < mat[mid][maxIdx])) {
+                return new int[]{mid, maxIdx};
+            } else if (mid > 0 && mat[mid - 1][maxIdx] > mat[mid][maxIdx]) {
                 right = mid - 1;
             } else {
                 left = mid + 1;
             }
         }
-        int col = 1;
-        while (m[left][col] < m[left][col + 1]) {
-            col++;
+        int maxIdx = 1;
+        for (int i = 1; i < mat[0].length; i++) {
+            if (mat[left][i] > mat[left][maxIdx]) {
+                maxIdx = i;
+            }
         }
-        return new int[]{left - 1, col - 1};
+        return new int[]{left, maxIdx};
     }
 }
