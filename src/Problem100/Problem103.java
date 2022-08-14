@@ -1,5 +1,7 @@
 package Problem100;
 
+import Types.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,21 +29,5 @@ public class Problem103 {
             left = !left;
         }
         return output;
-    }
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
     }
 }

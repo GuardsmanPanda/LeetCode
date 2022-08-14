@@ -1,5 +1,7 @@
 package Problem200;
 
+import Types.TreeNode;
+
 import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
@@ -21,21 +23,5 @@ public class Problem272 {
             res.remove();
         }
         dfs(node.right, k, res);
-    }
-
-    static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
     }
 }

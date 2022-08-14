@@ -1,5 +1,7 @@
 package Problem400;
 
+import Types.TreeNode;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,22 +23,5 @@ public class Problem437 {
         res += dfs(root.right, found, sum, target);
         found.compute(sum, (k, v) -> v == null ? 0 : v - 1);
         return res;
-    }
-
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
     }
 }

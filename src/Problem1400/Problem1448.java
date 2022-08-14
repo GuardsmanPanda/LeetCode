@@ -1,5 +1,7 @@
 package Problem1400;
 
+import Types.TreeNode;
+
 public class Problem1448 {
     public int goodNodes(TreeNode root) {
         return getGoodCount(root, Integer.MIN_VALUE);
@@ -13,22 +15,5 @@ public class Problem1448 {
         goodCount += getGoodCount(node.left, Math.max(max, node.val));
         goodCount += getGoodCount(node.right, Math.max(max, node.val));
         return goodCount;
-    }
-
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
     }
 }

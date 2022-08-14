@@ -1,5 +1,7 @@
 package Problem100;
 
+import Types.TreeNode;
+
 public class Problem156 {
 
     public TreeNode upsideDownBinaryTree(TreeNode root) {
@@ -15,21 +17,5 @@ public class Problem156 {
         root.left = null;
         root.right = null;
         return newRoot;
-    }
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
     }
 }
