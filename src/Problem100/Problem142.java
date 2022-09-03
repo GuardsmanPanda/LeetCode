@@ -1,5 +1,7 @@
 package Problem100;
 
+import Types.ListNode;
+
 public class Problem142 {
     public ListNode detectCycle(ListNode head) {
         if (head == null || head.next == null) {
@@ -21,15 +23,5 @@ public class Problem142 {
             slow = slow.next;
         }
         return fromStart;
-    }
-
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
     }
 }

@@ -1,9 +1,9 @@
 package Problem1300;
 
-public class Problem1367 {
-    record ListNode(int val, ListNode next) {}
-    record TreeNode(int val, TreeNode left, TreeNode right) {}
+import Types.ListNode;
+import Types.TreeNode;
 
+public class Problem1367 {
     private boolean found = false;
 
     public boolean isSubPath(ListNode head, TreeNode root) {

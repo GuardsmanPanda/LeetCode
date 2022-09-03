@@ -1,20 +1,12 @@
 package Problem100;
 
+import Types.ListNode;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
 public class Problem148 {
-    static class ListNode{
-        public int val;
-        public ListNode next;
-
-        public ListNode(int val) {
-            this.val = val;
-        }
-
-    }
-
     public ListNode sortList(ListNode head) {
         if (head == null || head.next == null) {
             return head;
