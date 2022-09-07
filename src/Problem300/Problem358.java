@@ -1,7 +1,6 @@
 package Problem300;
 
 import java.util.ArrayDeque;
-import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class Problem358 {
