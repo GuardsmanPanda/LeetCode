@@ -1,5 +1,9 @@
 SELECT
-    p.project_id, ROUND(AVG(e.experience_years), 2) AS average_years
-FROM project p
-LEFT JOIN employee e ON p.employee_id = e.employee_id
-GROUP BY p.project_id
+    p.project_id
+FROM (
+    SELECT
+        project_id, RANK() OVER (ORDER BY COUNT(*) DESC) as rr
+    FROM project
+    GROUP BY project_id
+) p
+WHERE p.rr = 1
