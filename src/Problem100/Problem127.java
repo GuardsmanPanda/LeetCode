@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Problem127 {
-    // x*x*pi -> x/2*x/2*pi -> x*x*pi / 4
+    // terrible solution..
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
         List<List<Integer>> connections = new ArrayList<>();
         int target = -1;
