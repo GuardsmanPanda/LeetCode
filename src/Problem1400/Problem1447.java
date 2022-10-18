@@ -12,7 +12,6 @@ public class Problem1447 {
                         .mapToObj(j -> j + "/" + i))
                 .toList();
     }
-
     private int gcd(int a, int b) {
         return b == 0 ? a : gcd(b, a % b);
     }

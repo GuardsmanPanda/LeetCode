@@ -8,7 +8,6 @@ public class Problem2305 {
         return best;
     }
 
-
     private int best = Integer.MAX_VALUE;
     private void findBest(int[] cookies, int idx, int[] values) {
         if (idx == cookies.length) {
