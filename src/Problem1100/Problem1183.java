@@ -7,5 +7,6 @@ public class Problem1183 {
             width = height;
             height = temp;
         }
+        return 0;
     }
 }
