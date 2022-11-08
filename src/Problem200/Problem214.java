@@ -3,21 +3,21 @@ package Problem200;
 public class Problem214 {
     public String shortestPalindrome(String s) {
         char[] arr = s.toCharArray();
-        for (int i = arr.length-1; i >= 0; i--) {
-            if (isPrefixPalindrome(i, arr)) {
-                StringBuilder sb = new StringBuilder();
-                for (int k = arr.length-1; k > i; k--) sb.append(arr[k]);
-                sb.append(s);
-                return sb.toString();
+        long hash = 0, revHash = 0, base = 1;
+        long mul = 139, mod = 111111111111111L;
+        int idx = 0;
+        for (int i = 0; i < s.length(); i++) {
+            hash = (hash * mul + arr[i]) % mod;
+            revHash = (revHash + arr[i] * base) % mod;
+            base = (base * mul) % mod;
+            if (hash == revHash) {
+                idx = i;
             }
         }
-        return "";
-    }
-
-    private boolean isPrefixPalindrome(int end, char[] a) {
-        for (int i = 0; i <= end/2; i++)
-            if (a[i] != a[end-i])
-                return false;
-        return true;
+        StringBuilder sb = new StringBuilder(s.length() * 2);
+        for (int i = s.length() - 1; i > idx; i--) {
+            sb.append(arr[i]);
+        }
+        return sb.append(s).toString();
     }
 }
