@@ -10,18 +10,16 @@ public class Problem42 {
                 sum += currentWater;
                 currentWater = 0;
                 lastIndex = i;
-            }
-            else currentWater += lastHeight - height[i];
+            } else currentWater += lastHeight - height[i];
         }
         currentWater = 0;
         lastHeight = 0;
-        for (int i = height.length-1; i >= lastIndex; i--) {
+        for (int i = height.length - 1; i >= lastIndex; i--) {
             if (height[i] >= lastHeight) {
                 lastHeight = height[i];
                 sum += currentWater;
                 currentWater = 0;
-            }
-            else currentWater += lastHeight - height[i];
+            } else currentWater += lastHeight - height[i];
         }
         return sum;
     }

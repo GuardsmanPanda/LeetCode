@@ -10,10 +10,10 @@ public class Problem4 {
             int C1 = (lo + hi) / 2;
             int C2 = N1 + N2 - C1;
 
-            double L1 = (C1 == 0) ? Integer.MIN_VALUE : nums1[(C1-1)/2];
-            double R1 = (C1 == 2*N1) ? Integer.MAX_VALUE : nums1[C1/2];
-            double L2 = (C2 == 0) ? Integer.MIN_VALUE : nums2[(C2-1)/2];
-            double R2 = (C2 == 2*N2) ? Integer.MAX_VALUE : nums2[C2/2];
+            double L1 = (C1 == 0) ? Integer.MIN_VALUE : nums1[(C1 - 1) / 2];
+            double R1 = (C1 == 2 * N1) ? Integer.MAX_VALUE : nums1[C1 / 2];
+            double L2 = (C2 == 0) ? Integer.MIN_VALUE : nums2[(C2 - 1) / 2];
+            double R2 = (C2 == 2 * N2) ? Integer.MAX_VALUE : nums2[C2 / 2];
 
             if (L1 > R2) hi = C1 - 1;
             else if (L2 > R1) lo = C1 + 1;

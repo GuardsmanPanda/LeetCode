@@ -11,7 +11,7 @@ public class Problem72 {
         for (int i = 0; i <= w2.length; i++) {
             distance[0][i] = i;
         }
-        for (int i = 1 ; i <= w1.length; i++) {
+        for (int i = 1; i <= w1.length; i++) {
             for (int j = 1; j <= w2.length; j++) {
                 if (w1[i - 1] == w2[j - 1]) {
                     distance[i][j] = distance[i - 1][j - 1];

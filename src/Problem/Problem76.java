@@ -19,8 +19,8 @@ public class Problem76 {
                 if (charCount[c] == 0) diff--;
             }
             while (diff == 0) {
-                if (right-left < minLength) {
-                    minLength = right-left;
+                if (right - left < minLength) {
+                    minLength = right - left;
                     leftMin = left;
                 }
                 char c = s.charAt(left);
@@ -29,6 +29,6 @@ public class Problem76 {
                 left++;
             }
         }
-        return leftMin != -1 ? s.substring(leftMin, leftMin+minLength) : "";
+        return leftMin != -1 ? s.substring(leftMin, leftMin + minLength) : "";
     }
 }

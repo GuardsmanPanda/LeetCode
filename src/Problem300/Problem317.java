@@ -14,7 +14,6 @@ public class Problem317 {
         boolean[] visited = new boolean[grid.length * grid[0].length];
         int[][] dirs = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
         int minTotalDistance = Integer.MAX_VALUE;
-
         int[] xpos = new int[grid.length * grid[0].length];
         int[] ypos = new int[grid.length * grid[0].length];
         int[] dist = new int[grid.length * grid[0].length];

@@ -16,9 +16,9 @@ public class Problem84 {
         for (int i = heights.length - 1; i >= 0; i--) {
             while (stackIndex >= 0 && heights[stack[stackIndex]] >= heights[i])
                 stackIndex--;
-            int length = stackIndex == -1 ? heights.length-i-1 : stack[stackIndex]-i-1;
+            int length = stackIndex == -1 ? heights.length - i - 1 : stack[stackIndex] - i - 1;
             length += i - leftLess[i];
-            maxArea = Math.max(maxArea, heights[i]*length);
+            maxArea = Math.max(maxArea, heights[i] * length);
             stack[++stackIndex] = i;
         }
         return maxArea;

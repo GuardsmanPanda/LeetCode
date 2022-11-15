@@ -14,8 +14,9 @@ public class Problem38 {
             for (int index = 0; index < oldList.size(); index++) {
                 int value = oldList.get(index);
                 int count = 1;
-                while (index < oldList.size()-1 && value == oldList.get(index+1)) {
-                    count++; index++;
+                while (index < oldList.size() - 1 && value == oldList.get(index + 1)) {
+                    count++;
+                    index++;
                 }
                 newList.add(count);
                 newList.add(value);

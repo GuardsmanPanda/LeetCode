@@ -17,7 +17,7 @@ public class Problem2 {
                 val++;
             }
             if (val > 9) carry = true;
-            result.addLast(val%10);
+            result.addLast(val % 10);
             if (l1 != null) l1 = l1.next;
             if (l2 != null) l2 = l2.next;
         }
@@ -26,7 +26,7 @@ public class Problem2 {
         while (!result.isEmpty()) {
             ListNode newNode = new ListNode(result.removeLast());
             newNode.next = node;
-            node= newNode;
+            node = newNode;
         }
 
         return node;

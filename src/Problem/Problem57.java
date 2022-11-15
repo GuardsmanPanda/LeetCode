@@ -12,8 +12,8 @@ public class Problem57 {
             if (cur[0] < newInterval[1] && cur[1] > newInterval[0]) {
                 newInterval[0] = Math.min(newInterval[0], cur[0]);
                 newInterval[1] = Math.max(newInterval[1], cur[1]);
-                while (i < intervals.length - 1 && intervals[i+1][0] <= newInterval[1]) {
-                    cur = intervals[i+1];
+                while (i < intervals.length - 1 && intervals[i + 1][0] <= newInterval[1]) {
+                    cur = intervals[i + 1];
                     newInterval[1] = Math.max(newInterval[1], cur[1]);
                     i++;
                 }

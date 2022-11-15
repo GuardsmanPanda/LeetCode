@@ -16,7 +16,7 @@ public class Problem8 {
                 if (r.length() > 11) {
                     return sign.equals("-") ? Integer.MIN_VALUE : Integer.MAX_VALUE;
                 }
-                return (int)Math.max(Integer.MIN_VALUE, Math.min(Integer.MAX_VALUE, Long.parseLong(sign+r)));
+                return (int) Math.max(Integer.MIN_VALUE, Math.min(Integer.MAX_VALUE, Long.parseLong(sign + r)));
             } catch (NumberFormatException e) {
                 return Integer.MIN_VALUE;
             }
