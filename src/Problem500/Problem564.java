@@ -5,45 +5,40 @@ public class Problem564 {
         if (n.length() == 1 || n.equals("10")) {
             return n.equals("0") ? "1" : String.valueOf(Integer.parseInt(n) - 1);
         }
-        if (n.matches("^10+1?$")) {
+        if (n.matches("^10*1?$")) {
             return n.substring(1).replaceAll("[01]", "9");
         }
         if (n.matches("^99+$")) {
             return "1" + n.substring(1).replaceAll("9", "0") + "1";
         }
-
-        char[] top = n.substring(0, (n.length() + 1) / 2).toCharArray();
-        char[] bot = n.substring(n.length() / 2).toCharArray();
-        long dist = 0, mul = 1;
-        for (int i = 0; i < top.length; i++) {
-            int i1 = top[i] - '0';
-            int i2 = bot[bot.length - i - 1] - '0';
-            dist += (i1 - i2) * mul;
+        long val = Long.parseLong(n); // ### -> 1, #### -> 2, ##### -> 2
+        int mul = 1;
+        for (int i = 0; i < n.length() / 2; i++) {
             mul *= 10;
-            bot[bot.length - i - 1] = top[i];
         }
-        System.out.println(Math.abs(dist));
-        StringBuilder sb = new StringBuilder();
-        if (dist == 0) {
-            int zeroCount = 0;
-            while (zeroCount < bot.length && bot[zeroCount] == '0') {
-                zeroCount++;
-            }
-            if (zeroCount == 1 && n.length() % 2 == 1) {
-                bot[0]++;
-                top[top.length - 1]++;
-            } else {
-                bot[zeroCount]--;
-                top[top.length - 1 - zeroCount]--;
-                for (int i = zeroCount - 1; i >= 0; i--) {
-                    top[top.length - 1 - i] = '9';
-                    bot[i] = '9';
-                }
-            }
+        long higher = val + mul;
+        long lower = val - mul;
+        char[] arr = n.toCharArray(), arr2 = Long.toString(higher).toCharArray(), arr3 = Long.toString(lower).toCharArray();
+        for (int i = 0; i < arr.length / 2; i++) {
+            arr[arr.length - 1 - i] = arr[i];
         }
-        sb.append(top);
-        sb.setLength(sb.length() - (n.length() % 2 == 1 ? 1 : 0));
-        sb.append(bot);
-        return sb.toString();
+        for (int i = 0; i < arr2.length / 2; i++) {
+            arr2[arr2.length - 1 - i] = arr2[i];
+        }
+        for (int i = 0; i < arr3.length / 2; i++) {
+            arr3[arr3.length - 1 - i] = arr3[i];
+        }
+        String candidate = new String(arr3);
+        long dist = Math.abs(Long.parseLong(new String(arr)) - val);
+        long dist2 = Long.parseLong(new String(arr2)) - val;
+        long dist3 = val - Long.parseLong(new String(arr3));
+        if (dist < dist3 && !new String(arr).equals(n)) {
+            candidate = new String(arr);
+            dist3 = dist;
+        }
+        if (dist2 < dist3) {
+            candidate = new String(arr2);
+        }
+        return candidate;
     }
 }
