@@ -8,6 +8,7 @@ public class Problem2515 {
                 int dist = Math.abs(i - startIndex);
                 res = Math.min(res, Math.min(dist, words.length - dist));
             }
+
         }
         return res == Integer.MAX_VALUE ? -1 : res;
     }
